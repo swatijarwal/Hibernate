@@ -34,7 +34,7 @@ public class UserTest {
 		UserDTO dto = new UserDTO();
 		//dto.setFirstName("swati");
 		//dto.setDob(sdf.parse("12-03-2000"));
-		
+		    dto.setLastName("jarwal");
 		
 		
 		UserModel model = new UserModel();
