@@ -1,0 +1,52 @@
+package com.rays.test;
+
+import java.util.Date;
+
+import com.rays.DTO.UserDTO;
+import com.rays.model.UserModel;
+
+public class UserTest {
+
+	public static void main(String[] args) {
+		
+		//testAdd();
+		testUpdate();
+	
+
+	}
+
+	private static void testUpdate() {
+		
+		UserDTO dto = new UserDTO();
+		dto.setId(1);
+		dto.setFirstName("swati");
+		dto.setLastName("jarwal");
+		dto.setLoginid("swati123@gmail.com");
+		dto.setPassword("pass@123");
+		dto.setDob(new Date());
+		dto.setAddress("indore");
+		
+		UserModel model = new UserModel();
+		model.update(dto);
+		
+	}
+
+	private static void testAdd() {
+	
+		UserDTO  dto = new UserDTO();
+		
+		dto.setId(1);
+		dto.setFirstName("swati");
+		dto.setLastName("jarwal");
+		dto.setLoginid("swati@gmail.com");
+		dto.setPassword("pass@123");
+		dto.setDob(new Date());
+		dto.setAddress("indore");
+		
+		UserModel model = new UserModel();
+		
+		model.add(dto);
+		
+	}
+
+}

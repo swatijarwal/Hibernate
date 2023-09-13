@@ -1,0 +1,107 @@
+package com.rays.test;
+
+import java.util.Date;
+
+import com.rays.DTO.UserDTO;
+import com.rays.model.UserModel;
+
+public class UserTest {
+
+	public static void main(String[] args) {
+		
+		//testAdd();
+		//testUpdate();
+	//	testDelete();
+	
+		//testAuthenticate();
+		
+		testFindByPk();
+		
+
+	}
+
+	private static void testFindByPk() {
+		
+				UserModel model = new UserModel();
+	       UserDTO dto =	model.findByPk(1);
+		
+		System.out.println(dto.getFirstName());
+		System.out.println(dto.getLastName());
+		System.out.println(dto.getLoginid());
+		System.out.println(dto.getPassword());
+		System.out.println(dto.getDob());
+		System.out.println(dto.getAddress());
+
+		
+		
+	}
+
+	private static void testAuthenticate() {
+		
+		UserModel model = new UserModel();
+UserDTO dto=		model.authenticate("swati@gmail.com", "pass@123");
+
+if(dto!=null)
+{
+	System.out.println(dto.getFirstName());
+	System.out.println(dto.getLastName());
+	System.out.println(dto.getLoginid());
+	System.out.println(dto.getPassword());
+	System.out.println(dto.getDob());
+	System.out.println(dto.getAddress());
+}
+else
+{
+	System.out.println("user not exist...!!!");
+}
+		
+		
+	}
+
+	private static void testDelete() {
+		
+		UserDTO dto = new UserDTO();
+		dto.setId(3);
+		
+		UserModel model = new UserModel();
+		model.delete(dto);
+		
+		
+		
+	}
+
+	private static void testUpdate() {
+		
+		UserDTO dto = new UserDTO();
+		dto.setId(3);
+		dto.setFirstName("shivi");
+		dto.setLastName("dubey");
+		dto.setLoginid("shivi123@gmail.com");
+		dto.setPassword("pass@123");
+		dto.setDob(new Date());
+		dto.setAddress("indore");
+		
+		UserModel model = new UserModel();
+		model.update(dto);
+		
+	}
+
+	private static void testAdd() {
+	
+		UserDTO  dto = new UserDTO();
+		
+		dto.setId(3);
+		dto.setFirstName("adesh");
+		dto.setLastName("parteti");
+		dto.setLoginid("adesh@gmail.com");
+		dto.setPassword("pass@1234");
+		dto.setDob(new Date());
+		dto.setAddress("indore");
+		
+		UserModel model = new UserModel();
+		
+		model.add(dto);
+		
+	}
+
+}

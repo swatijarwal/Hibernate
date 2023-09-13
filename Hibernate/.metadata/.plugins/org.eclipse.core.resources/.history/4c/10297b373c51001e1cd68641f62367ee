@@ -1,0 +1,5 @@
+package com.rays.DTO;
+
+public class UserDTO {
+
+}
