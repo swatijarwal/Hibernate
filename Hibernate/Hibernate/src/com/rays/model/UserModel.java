@@ -123,11 +123,17 @@ public class UserModel {
                    criteria.add(Restrictions.eq("firstName", dto.getFirstName() ));
 			
 			}
+			
+			if(dto.getLastName()!=null && dto.getLastName().length()>0)
+			{
+				criteria.add(Restrictions.eq("lastName", dto.getLastName()));
+			}
 			if(dto.getDob()!=null && dto.getDob().getTime()>0)
 			{
 				
 				criteria.add(Restrictions.eq("dob", dto.getDob()));
 			}
+			
 			
 			
 			if(pageSize>0)
