@@ -1,0 +1,57 @@
+package com.rays.test;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+import com.rays.auction.AuctionItem;
+import com.rays.auction.Bids;
+
+public class TestAuction {
+
+	public static void main(String[] args) {
+
+		Bids bid1 = new Bids();
+		bid1.setId(1);
+		bid1.setAmount(1000);
+		bid1.setTimestamp("A");
+
+		Bids bid2 = new Bids();
+		bid2.setId(2);
+		bid2.setAmount(2000);
+		bid2.setTimestamp("AA");
+
+		Bids bid3 = new Bids();
+		bid3.setId(3);
+		bid3.setAmount(3000);
+		bid3.setTimestamp("AAA");
+
+		Set bids = new HashSet();
+
+		bids.add(bid1);
+		bids.add(bid2);
+		bids.add(bid3);
+
+		AuctionItem item = new AuctionItem();
+		item.setId(1);
+		item.setBids(bids);
+		item.setDescription("option 1");
+
+		SessionFactory sf = new Configuration().configure().buildSessionFactory();
+
+		Session session = sf.openSession();
+
+		Transaction ts = session.beginTransaction();
+
+		session.save(item);
+
+		ts.commit();
+		sf.close();
+
+	}
+
+}
