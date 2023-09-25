@@ -25,7 +25,7 @@ public class TestTransientPersistent {
 
 		Transaction tx = session.beginTransaction();
 
-		AuctionItem item = (AuctionItem) session.get(AuctionItem.class, 1);
+		AuctionItem item = (AuctionItem) session.get(AuctionItem.class, 5);
 
 		Set s = item.getBids();
 		s.add(bid);
